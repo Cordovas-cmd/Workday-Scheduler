@@ -1,3 +1,4 @@
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -43,7 +44,7 @@ textarea{
 }
 
 .past {
-  background-color: #d3d3d3;
+  background-color: #756c6c;
   color: white;
 }
 
@@ -61,12 +62,11 @@ textarea{
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: rgba(99, 112, 129, 0.75);
+  background-color: rgba(48, 79, 119, 0.75);
   color: white;
 }
 
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
-  background-color: blue;
 }

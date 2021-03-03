@@ -40,10 +40,10 @@ createRow.append(createButton);
 }
 
  //calls the localStorage Function (will save all user input later in the JS)
- localStorage();
+ localStorageFunction();
 
  //function to store the data from the textarea into localStorage
-function localStorage() {
+function localStorageFunction() {
 
     for (let index = 0; index < numbers.length; index++) {
         $("textarea")[index].value = localStorage.getItem("textarea" + String(index + 1)); 
@@ -58,3 +58,26 @@ $("button").on("click", function (event) { //Adds and even't listener for the "b
         localStorage.setItem('textarea' + String(index + 1), $("textarea")[index].value) //Sets item to the value of the text area for the appropriate block in "time list"
     }
 });
+
+// Colors the appropriate row / timeblock based upon whether or not the current time of day is equal to less than or past the "timeblock" you're in
+// GREY = Already past, RED = Current hour , GREEN = Coming up later in the day
+function timeValid() {
+    var currentHour = moment().hours(); //Check current timeblock user is in and determines whether it's PAST PRESENT OR FUTURE 
+    $(".time-block").each(function () {
+        var currentBlock = parseInt($(this).attr("id").split(" ")[0]);
+
+        if (currentBlock < currentHour) {
+            $(this).addClass("past");
+        } else if (currentBlock === currentHour) {
+            $(this).removeClass("past");
+            $(this).addClass("present");
+        } else {
+            $(this).removeClass("past");
+            $(this).removeClass("present");
+            $(this).addClass("future");
+        }
+    });
+}
+
+//Calls function to check whether time is still valid or not
+timeValid()
