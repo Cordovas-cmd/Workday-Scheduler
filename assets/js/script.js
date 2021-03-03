@@ -17,8 +17,18 @@ const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 // creates rows and a section for each time slot.
 for (let i = 0; i < timeList.length; i++) {
     let createRow = $("<div class='row time-block'>").attr("id", timeId[i]);
-    let createTime = $("<div class='hour col-1'>")
+    let createTime = $("<div class='hour col-1'>");
 
     // Creates the text area to hold content.
     let createTextarea = $("<textarea class='col-10'>");
-    createTextarea.attr("id", timeList[i]); }
+    createTextarea.attr("id", timeList[i]);//this creates the buttons
+    let createButton = $("<button type='button' class='saveBtn col-1 far fa-save'>");
+
+    // this appends the created row to the container
+    createContainer.append(createRow);
+    // this creates the timeList and appends  8 rows 9am-5pm (regular workday hours)
+    createTime.text(timeList[i]);
+    createRow.append(createTime); 
+    
+    // Appends the previously created "text area" so users can input content
+    createRow.append(createTextarea); }
