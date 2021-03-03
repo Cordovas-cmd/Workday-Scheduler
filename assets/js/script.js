@@ -40,4 +40,21 @@ createRow.append(createButton);
 }
 
  //calls the localStorage Function (will save all user input later in the JS)
- localStorageFunction();
+ localStorage();
+
+ //function to store the data from the textarea into localStorage
+function localStorage() {
+
+    for (let index = 0; index < numbers.length; index++) {
+        $("textarea")[index].value = localStorage.getItem("textarea" + String(index + 1)); 
+    }
+}
+
+// this to save the stored data that has been entered into the textarea (for instance if the page is refreshed)
+$("button").on("click", function (event) { //Adds and even't listener for the "button"
+    event.preventDefault();
+
+    for (let index = 0; index < numbers.length; index++) {
+        localStorage.setItem('textarea' + String(index + 1), $("textarea")[index].value) //Sets item to the value of the text area for the appropriate block in "time list"
+    }
+});
