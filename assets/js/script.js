@@ -21,7 +21,8 @@ for (let i = 0; i < timeList.length; i++) {
 
     // Creates the text area to hold content.
     let createTextarea = $("<textarea class='col-10'>");
-    createTextarea.attr("id", timeList[i]);//this creates the buttons
+    createTextarea.attr("id", timeList[i]);
+    // Will create the button and save icon using "fa-save using a font awesome icon.
     let createButton = $("<button type='button' class='saveBtn col-1 far fa-save'>");
 
     // this appends the created row to the container
@@ -31,4 +32,12 @@ for (let i = 0; i < timeList.length; i++) {
     createRow.append(createTime); 
     
     // Appends the previously created "text area" so users can input content
-    createRow.append(createTextarea); }
+    createRow.append(createTextarea); 
+
+// creates buttons for each time slot (8 a.m- 5 p.m regular work hours)
+createButton.text();
+createRow.append(createButton);
+}
+
+ //calls the localStorage Function (will save all user input later in the JS)
+ localStorageFunction();
