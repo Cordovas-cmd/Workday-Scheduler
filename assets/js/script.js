@@ -40,10 +40,10 @@ createRow.append(createButton);
 }
 
  //calls the localStorage Function (will save all user input later in the JS)
- localStorageFunction();
+ localStorageFunctions();
 
  //function to store the data from the textarea into localStorage
-function localStorageFunction() {
+function localStorageFunctions() {
 
     for (let index = 0; index < numbers.length; index++) {
         $("textarea")[index].value = localStorage.getItem("textarea" + String(index + 1)); 
